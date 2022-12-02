@@ -3,9 +3,12 @@ FROM ubuntu:18.04
 MAINTAINER Wenbin Fang <wenbin@nextdoor.com>
 
 RUN apt-get -qq update && \
-    apt-get -qq install python-virtualenv git && \
+    apt-get -qq install python3  python3-pip  git && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+#    apt-get -qq install python-virtualenv git && \
+
+RUN pip3 install virtualenv
 
 RUN virtualenv /mnt/scheduler && \
     . /mnt/scheduler/bin/activate && \
