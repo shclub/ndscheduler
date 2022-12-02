@@ -20,4 +20,6 @@ ADD simple_scheduler/docker/run_scheduler /mnt/scheduler/bin/run_scheduler
 
 RUN chmod 755 /mnt/scheduler/bin/run_scheduler
 
+RUN ln -snf /usr/share/zoneinfo/Asia/Seoul /etc/localtime && echo Asia/Seoul > /etc/timezone
+
 CMD ["/mnt/scheduler/bin/run_scheduler"]
