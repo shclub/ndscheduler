@@ -7,10 +7,10 @@ RUN apt-get -qq update && \
     
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.8 1
 
-RUN python3 -m venv /mnt/scheduler && \
-    . /mnt/scheduler/bin/activate && \
-    pip install -e git+https://github.com/shclub/ndscheduler.git#egg=ndscheduler && \
-    pip install -r /mnt/scheduler/src/ndscheduler/simple_scheduler/requirements.txt
+RUN python3 -m venv /mnt/scheduler
+RUN . /mnt/scheduler/bin/activate && \
+    pip3 install -e git+https://github.com/shclub/ndscheduler.git#egg=ndscheduler && \
+    pip3 install -r /mnt/scheduler/src/ndscheduler/simple_scheduler/requirements.txt
 
 ADD simple_scheduler/docker/apns.pem /mnt/scheduler/
 ADD simple_scheduler/docker/run_scheduler /mnt/scheduler/bin/run_scheduler
