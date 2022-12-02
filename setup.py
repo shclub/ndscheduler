@@ -59,6 +59,8 @@ classifiers = [s.strip() for s in classes.split('\n') if s]
 
 # -*- %%% -*-
 
+#'APScheduler >= 3.0.0',
+
 setup(
     name=PACKAGE,
     version=__version__,
@@ -80,7 +82,7 @@ setup(
     ],
     test_suite='nose.collector',
     install_requires=[
-        'APScheduler >= 3.0.0',
+        'APScheduler',
         'SQLAlchemy >= 1.0.0',
         'future >= 0.15.2',
         'tornado < 6',
