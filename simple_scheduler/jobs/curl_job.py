@@ -28,7 +28,7 @@ class CurlJob(job.JobBase):
                                   '["http://localhost:8888/api/v1/jobs/ba12e", "DELETE"]')
         }
 
-    def run(self, url, request_type,  *args, **kwargs):
+    def run_old(self, url, request_type,  *args, **kwargs):
         print('Calling GET on url: %s' % (url))
 
         session = requests.Session()
@@ -39,13 +39,14 @@ class CurlJob(job.JobBase):
                                  data=None)
         return result.text
     
-    def run_post(self, url, request_type,  *args, **kwargs):
+    def run(self, url, request_type,  *args, **kwargs):
         print('Calling Post on url: %s' % (url))
         
         data = {
-            "id": 1001,
-            "name": "geek",
-            "passion": "coding",
+            "gubun" : "auto",
+            "type" : "view",
+            "position" : "40",
+            "company" : "next"
         }
         
         headers = {"Content-Type": "application/json; charset=utf-8"}
