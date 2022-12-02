@@ -38,8 +38,16 @@ class CurlJob(job.JobBase):
                                  headers=None,
                                  data=None)
         return result.text
+    
+    def run_post(self, url, request_type,  *args, **kwargs):
+        print('Calling Post on url: %s' % (url))
+
+        session = requests.Session()
+        response = session.post(url, data=data, timeout=self.TIMEOUT, headers=None, data=None)
+
+        return response
 
 
 if __name__ == "__main__":
     job = CurlJob.create_test_instance()
-    job.run('http://localhost:888/api/v1/jobs')
+    job.run('http://localhost:8888/api/v1/jobs')
