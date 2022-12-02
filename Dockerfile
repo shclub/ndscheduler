@@ -1,13 +1,13 @@
 FROM ubuntu:18.04
 
 RUN apt-get -qq update && \
-    apt-get -qq install python-virtualenv git python3.6 && \
+    apt-get -qq install  python3-venv git python3.8 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
     
-RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.6 1
+RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.8 1
 
-RUN virtualenv /mnt/scheduler && \
+RUN python3 -m venv /mnt/scheduler && \
     . /mnt/scheduler/bin/activate && \
     pip install -e git+https://github.com/shclub/ndscheduler.git#egg=ndscheduler && \
     pip install -r /mnt/scheduler/src/ndscheduler/simple_scheduler/requirements.txt
