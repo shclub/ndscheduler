@@ -60,7 +60,7 @@ define(['backbone', 'vendor/moment-timezone-with-data'], function(backbone, mome
         returnString = '<span class="success-color">' + moment().format('Z') + ': ' +
             moment(nextRunTime).format('MM/DD/YYYY HH:mm:ss') +
             '</span><br><span class="scheduled-color">UTC: ' +
-            moment(nextRunTime).utc().format('MM/DD/YYYY HH:mm:ss') +
+            moment(nextRunTime).tz("Asia/Seoul").format('MM/DD/YYYY HH:mm:ss') +
             '</span>';
       }
       return returnString;
