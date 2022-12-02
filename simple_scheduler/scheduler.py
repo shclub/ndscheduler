@@ -24,7 +24,7 @@ class SimpleServer(server.SchedulerServer):
                 name='invest_call_long_30',
                 pub_args=['http://shclub.synology.me:32773/trade', 'POST',{'gubun' : 'auto' ,'type': 'long','position' : '30','company' : 'next','pc_name' : 'LENOVO-M79'}],
                 minute='40',hour='0')
-             self.scheduler_manager.add_job(
+            self.scheduler_manager.add_job(
                 job_class_string='simple_scheduler.jobs.curl_job.CurlJob',
                 name='invest_call_short_30',
                 pub_args=['http://shclub.synology.me:32773/trade', 'POST',{'gubun' : 'auto' ,'type': 'short','position' : '30','company' : 'next','pc_name' : 'LENOVO-M79'}],
