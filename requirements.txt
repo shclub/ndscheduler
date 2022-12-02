@@ -4,6 +4,7 @@
 git+git://github.com/djacobs/PyAPNs.git#egg=PyAPNs
 
 requests
+apns
 
 # Uncomment this if you want to use Postgres as datastore
 #
