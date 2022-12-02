@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:14.04
 
 RUN apt-get -qq update && \
     apt-get -qq install python-virtualenv git && \
