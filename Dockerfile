@@ -1,9 +1,11 @@
 FROM ubuntu:18.04
 
 RUN apt-get -qq update && \
-    apt-get -qq install python-virtualenv git && \
+    apt-get -qq install python-virtualenv git python3.6 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    
+RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.6.9 1
 
 RUN virtualenv /mnt/scheduler && \
     . /mnt/scheduler/bin/activate && \
