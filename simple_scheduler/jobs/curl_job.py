@@ -41,11 +41,22 @@ class CurlJob(job.JobBase):
     
     def run_post(self, url, request_type,  *args, **kwargs):
         print('Calling Post on url: %s' % (url))
+        
+        data = {
+            "id": 1001,
+            "name": "geek",
+            "passion": "coding",
+        }
+        
+        headers = {"Content-Type": "application/json; charset=utf-8"}
 
         session = requests.Session()
-        response = session.post(url, data=data, timeout=self.TIMEOUT, headers=None, data=None)
+        response = session.post(url, timeout=self.TIMEOUT, headers=headers, data=data)
 
-        return response
+        print("Status Code", response.status_code)
+        print("JSON Response ", response.json())
+
+        return response.json()
 
 
 if __name__ == "__main__":
