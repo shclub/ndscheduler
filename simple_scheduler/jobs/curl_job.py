@@ -30,7 +30,7 @@ class CurlJob(job.JobBase):
             ],
             'example_arguments': ('["http://localhost:8888/api/v1/jobs", "GET"]'
                                   '["http://localhost:8888/api/v1/jobs/ba12e", "DELETE"]'
-                                 '["http://localhost:8888/api/v1/jobs/ba12e", "POST"]')
+                                 '["http://localhost:8888/api/v1/jobs/ba12e", "POST",{“gubun" : "auto" ,"type": "view","position" : "40","company" : "next”}]')
         }
 
     def run_old(self, url, request_type,  *args, **kwargs):
@@ -47,23 +47,24 @@ class CurlJob(job.JobBase):
     def run(self, url, request_type, data,  *args, **kwargs):
         print('Calling Post on url: %s' % (url))
         
-        data = {
-            'gubun' : 'auto',
-            'type' : 'view',
-            'position' : '40',
-            'company' : 'next'
-        }
+        
+        #data = {
+        #    'gubun' : 'auto',
+        #    'type' : 'view',
+        #    'position' : '40',
+        #    'company' : 'next'
+        #}
         
         headers = {'Content-Type': 'application/json; chearset=utf-8'}
         
         session = requests.Session()
-        res = session.post(url, timeout=self.TIMEOUT, data=json.dumps(data) ,headers=headers)
+        response = session.post(url, timeout=self.TIMEOUT, data=json.dumps(data) ,headers=headers)
 
         #print("Status Code", response.status_code)
         #print("JSON Response ", response.json())
-        res_text = str(res.status_code) + " | " + res.text
+        res_text = str(response.status_code) + " | " + response.text
         print(res_text)
-        return res_text
+        return response.json()
 
 
 if __name__ == "__main__":
