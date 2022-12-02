@@ -30,7 +30,7 @@ class CurlJob(job.JobBase):
             ],
             'example_arguments': ('["http://localhost:8888/api/v1/jobs", "GET"]'
                                   '["http://localhost:8888/api/v1/jobs/ba12e", "DELETE"]'
-                                 '["http://localhost:8888/api/v1/jobs/ba12e", "POST",{“gubun" : "auto" ,"type": "view","position" : "40","company" : "next”}]')
+                                 '["http://shclub.synology.me:32773/trade", "POST",{“gubun" : "auto" ,"type": "view","position" : "40","company" : "next”}]')
         }
 
     def run_old(self, url, request_type,  *args, **kwargs):
