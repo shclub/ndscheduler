@@ -59,7 +59,7 @@ define(['backbone', 'vendor/moment-timezone-with-data'], function(backbone, mome
         var tz = $('#display-tz').val();
         returnString = '<span class="success-color">' + moment().format('Z') + ': ' +
             moment(nextRunTime).format('MM/DD/YYYY HH:mm:ss') +
-            '</span><br><span class="scheduled-color">UTC: ' +
+            '</span><br><span class="scheduled-color">KST: ' +
             moment(nextRunTime).tz("Asia/Seoul").format('MM/DD/YYYY HH:mm:ss') +
             '</span>';
       }
