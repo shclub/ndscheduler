@@ -4,7 +4,7 @@ import logging
 import os
 
 from ndscheduler.corescheduler import job
-from apns import APNs, Payload
+###from apns import APNs, Payload
 
 logger = logging.getLogger(__name__)
 
@@ -31,10 +31,10 @@ class APNSJob(job.JobBase):
         print('Sending %s to %s' % (alert, token))
 
         cert_file = os.environ['APNS_CERT_PATH'] or 'simple_scheduler/jobs/apns-cert.pem'
-        apns = APNs(use_sandbox=False, cert_file=cert_file)
+        ###apns = APNs(use_sandbox=False, cert_file=cert_file)
         # Send a notification
-        payload = Payload(alert=alert, sound="default", badge=0)
-        apns.gateway_server.send_notification(token, payload)
+        ###payload = Payload(alert=alert, sound="default", badge=0)
+        ###apns.gateway_server.send_notification(token, payload)
 
 
 if __name__ == "__main__":
