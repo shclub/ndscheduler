@@ -5,7 +5,7 @@ RUN apt-get -qq update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
     
-RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.6.9 1
+RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.6 1
 
 RUN virtualenv /mnt/scheduler && \
     . /mnt/scheduler/bin/activate && \
