@@ -34,7 +34,7 @@ TORNADO_MAX_WORKERS = 8
 THREAD_POOL_SIZE = 4
 JOB_MAX_INSTANCES = 3
 JOB_COALESCE = True
-TIMEZONE = 'KST'
+TIMEZONE = 'Asia/Seoul'
 
 # When a job is misfired -- A job were to run at a specific time, but due to some
 # reason (e.g., scheduler restart), we miss that run.
