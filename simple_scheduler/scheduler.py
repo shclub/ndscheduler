@@ -14,7 +14,11 @@ class SimpleServer(server.SchedulerServer):
                 name='My Awesome Job',
                 pub_args=['first parameter', {'second parameter': 'can be a dict'}],
                 minute='*/1')
-
+            self.scheduler_manager.add_job(
+                job_class_string='simple_scheduler.jobs.curl_job.CurlJob',
+                name='My Invest',
+                pub_args=['http://shclub.synology.me:32773/trade', 'POST',{'gubun' : 'auto' ,'type': 'view','position' : '40','company' : 'next'}],
+                minute='*/30')
 
 if __name__ == "__main__":
     SimpleServer.run()
