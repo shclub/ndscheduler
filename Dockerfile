@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 
 RUN apt-get -qq update && \
-    apt-get -qq install  python3-venv git python3.8 && \
+    apt-get -qq install git python3.8 python3-venv && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
     
