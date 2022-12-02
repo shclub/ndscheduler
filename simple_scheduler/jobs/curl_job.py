@@ -2,6 +2,7 @@
 
 import logging
 import requests
+import json
 
 from ndscheduler.corescheduler import job
 
@@ -43,21 +44,22 @@ class CurlJob(job.JobBase):
         print('Calling Post on url: %s' % (url))
         
         data = {
-            "gubun" : "auto",
-            "type" : "view",
-            "position" : "40",
-            "company" : "next"
+            'gubun' : 'auto',
+            'type' : 'view',
+            'position' : '40',
+            'company' : 'next'
         }
         
-        headers = {"Content-Type": "application/json; charset=utf-8"}
-
+        headers = {'Content-Type': 'application/json; chearset=utf-8'}
+        
         session = requests.Session()
-        response = session.post(url, timeout=self.TIMEOUT, headers=headers, data=data)
+        res = session.post(url, timeout=self.TIMEOUT, data=json.dumps(data) ,headers=headers)
 
-        print("Status Code", response.status_code)
-        print("JSON Response ", response.json())
-
-        return response.json()
+        #print("Status Code", response.status_code)
+        #print("JSON Response ", response.json())
+        res_text = str(res.status_code) + " | " + res.text
+        print(res_text)
+        return res_text
 
 
 if __name__ == "__main__":
