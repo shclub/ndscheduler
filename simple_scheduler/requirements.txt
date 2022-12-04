@@ -11,4 +11,4 @@ requests
 
 # Uncomment this if you want to use MySQL as datastore
 #
-# pymysql == 0.6.7
+pymysql == 0.6.7
