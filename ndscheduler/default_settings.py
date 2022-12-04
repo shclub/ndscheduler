@@ -83,7 +83,7 @@ DATABASE_CLASS = 'ndscheduler.corescheduler.datastore.providers.mysql.DatastoreM
 DATABASE_CONFIG_DICT = {
      'user': 'shclub',
      'password': '9302390',
-     'hostname': 'host.docker.internal',
+     'hostname': '192.168.1.79',
      'port': 3306,
      'database': 'scheduler'
 }
