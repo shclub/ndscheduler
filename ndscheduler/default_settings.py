@@ -79,14 +79,14 @@ DATABASE_TABLENAMES = {
 
 # MySQL
 #
- DATABASE_CLASS = 'ndscheduler.corescheduler.datastore.providers.mysql.DatastoreMySQL'
- DATABASE_CONFIG_DICT = {
+DATABASE_CLASS = 'ndscheduler.corescheduler.datastore.providers.mysql.DatastoreMySQL'
+DATABASE_CONFIG_DICT = {
      'user': 'shclub',
      'password': '9302390',
      'hostname': 'host.docker.internal',
      'port': 3306,
      'database': 'scheduler'
- }
+}
 
 # ndschedule is based on apscheduler. Here we can customize the apscheduler's main scheduler class
 # Please see ndscheduler/core/scheduler/base.py
