@@ -5,6 +5,7 @@ git+git://github.com/djacobs/PyAPNs.git#egg=PyAPNs
 
 requests
 apns
+pymysql
 
 # Uncomment this if you want to use Postgres as datastore
 #
@@ -12,5 +13,4 @@ apns
 
 # Uncomment this if you want to use MySQL as datastore
 #
-pymysql == 0.6.7
 # pymysql == 0.6.7
